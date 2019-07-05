@@ -1,13 +1,29 @@
 package org.linlinjava.litemall.wx.web;
 
-import cn.binarywang.wx.miniapp.api.WxMaService;
-import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
-import cn.binarywang.wx.miniapp.bean.WxMaPhoneNumberInfo;
+import static org.linlinjava.litemall.wx.util.WxResponseCode.AUTH_CAPTCHA_FREQUENCY;
+import static org.linlinjava.litemall.wx.util.WxResponseCode.AUTH_CAPTCHA_UNMATCH;
+import static org.linlinjava.litemall.wx.util.WxResponseCode.AUTH_CAPTCHA_UNSUPPORT;
+import static org.linlinjava.litemall.wx.util.WxResponseCode.AUTH_INVALID_ACCOUNT;
+import static org.linlinjava.litemall.wx.util.WxResponseCode.AUTH_INVALID_MOBILE;
+import static org.linlinjava.litemall.wx.util.WxResponseCode.AUTH_MOBILE_REGISTERED;
+import static org.linlinjava.litemall.wx.util.WxResponseCode.AUTH_MOBILE_UNREGISTERED;
+import static org.linlinjava.litemall.wx.util.WxResponseCode.AUTH_NAME_REGISTERED;
+import static org.linlinjava.litemall.wx.util.WxResponseCode.AUTH_OPENID_BINDED;
+import static org.linlinjava.litemall.wx.util.WxResponseCode.AUTH_OPENID_UNACCESS;
+
+import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.linlinjava.litemall.core.notify.NotifyService;
 import org.linlinjava.litemall.core.notify.NotifyType;
 import org.linlinjava.litemall.core.util.CharUtil;
+import org.linlinjava.litemall.core.util.IpUtil;
 import org.linlinjava.litemall.core.util.JacksonUtil;
 import org.linlinjava.litemall.core.util.RegexUtil;
 import org.linlinjava.litemall.core.util.ResponseUtil;
@@ -17,23 +33,21 @@ import org.linlinjava.litemall.db.service.CouponAssignService;
 import org.linlinjava.litemall.db.service.LitemallUserService;
 import org.linlinjava.litemall.wx.annotation.LoginUser;
 import org.linlinjava.litemall.wx.dto.UserInfo;
-import org.linlinjava.litemall.wx.dto.UserToken;
 import org.linlinjava.litemall.wx.dto.WxLoginInfo;
 import org.linlinjava.litemall.wx.service.CaptchaCodeManager;
 import org.linlinjava.litemall.wx.service.UserTokenManager;
-import org.linlinjava.litemall.core.util.IpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
-import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import static org.linlinjava.litemall.wx.util.WxResponseCode.*;
+import cn.binarywang.wx.miniapp.api.WxMaService;
+import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
+import cn.binarywang.wx.miniapp.bean.WxMaPhoneNumberInfo;
 
 /**
  * 鉴权服务

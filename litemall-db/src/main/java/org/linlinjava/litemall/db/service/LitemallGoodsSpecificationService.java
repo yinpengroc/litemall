@@ -1,16 +1,17 @@
 package org.linlinjava.litemall.db.service;
 
-import org.linlinjava.litemall.db.dao.LitemallGoodsSpecificationMapper;
-import org.linlinjava.litemall.db.domain.LitemallGoodsSpecification;
-import org.linlinjava.litemall.db.domain.LitemallGoodsSpecificationExample;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.annotation.Resource;
+
+import org.linlinjava.litemall.db.dao.LitemallGoodsSpecificationMapper;
+import org.linlinjava.litemall.db.domain.LitemallGoodsSpecification;
+import org.linlinjava.litemall.db.domain.LitemallGoodsSpecificationExample;
+import org.springframework.stereotype.Service;
 
 @Service
 public class LitemallGoodsSpecificationService {

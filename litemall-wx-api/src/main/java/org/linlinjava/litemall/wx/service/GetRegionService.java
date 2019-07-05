@@ -1,11 +1,11 @@
 package org.linlinjava.litemall.wx.service;
 
+import java.util.List;
+
 import org.linlinjava.litemall.db.domain.LitemallRegion;
 import org.linlinjava.litemall.db.service.LitemallRegionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 /**
  * @author zhy

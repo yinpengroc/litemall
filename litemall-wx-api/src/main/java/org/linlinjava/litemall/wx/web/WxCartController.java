@@ -1,17 +1,7 @@
 package org.linlinjava.litemall.wx.web;
 
-import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.linlinjava.litemall.core.system.SystemConfig;
-import org.linlinjava.litemall.core.util.JacksonUtil;
-import org.linlinjava.litemall.core.util.ResponseUtil;
-import org.linlinjava.litemall.db.domain.*;
-import org.linlinjava.litemall.db.service.*;
-import org.linlinjava.litemall.wx.annotation.LoginUser;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import static org.linlinjava.litemall.wx.util.WxResponseCode.GOODS_NO_STOCK;
+import static org.linlinjava.litemall.wx.util.WxResponseCode.GOODS_UNSHELVE;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -19,8 +9,35 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.linlinjava.litemall.wx.util.WxResponseCode.GOODS_NO_STOCK;
-import static org.linlinjava.litemall.wx.util.WxResponseCode.GOODS_UNSHELVE;
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.linlinjava.litemall.core.system.SystemConfig;
+import org.linlinjava.litemall.core.util.JacksonUtil;
+import org.linlinjava.litemall.core.util.ResponseUtil;
+import org.linlinjava.litemall.db.domain.LitemallAddress;
+import org.linlinjava.litemall.db.domain.LitemallCart;
+import org.linlinjava.litemall.db.domain.LitemallCoupon;
+import org.linlinjava.litemall.db.domain.LitemallCouponUser;
+import org.linlinjava.litemall.db.domain.LitemallGoods;
+import org.linlinjava.litemall.db.domain.LitemallGoodsProduct;
+import org.linlinjava.litemall.db.domain.LitemallGrouponRules;
+import org.linlinjava.litemall.db.service.CouponVerifyService;
+import org.linlinjava.litemall.db.service.LitemallAddressService;
+import org.linlinjava.litemall.db.service.LitemallCartService;
+import org.linlinjava.litemall.db.service.LitemallCouponService;
+import org.linlinjava.litemall.db.service.LitemallCouponUserService;
+import org.linlinjava.litemall.db.service.LitemallGoodsProductService;
+import org.linlinjava.litemall.db.service.LitemallGoodsService;
+import org.linlinjava.litemall.db.service.LitemallGrouponRulesService;
+import org.linlinjava.litemall.wx.annotation.LoginUser;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 用户购物车服务

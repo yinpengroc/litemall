@@ -1,14 +1,16 @@
 package org.linlinjava.litemall.db.service;
 
-import com.github.pagehelper.PageHelper;
+import java.util.List;
+
+import javax.annotation.Resource;
+
 import org.linlinjava.litemall.db.dao.LitemallRegionMapper;
 import org.linlinjava.litemall.db.domain.LitemallRegion;
 import org.linlinjava.litemall.db.domain.LitemallRegionExample;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import javax.annotation.Resource;
-import java.util.List;
+import com.github.pagehelper.PageHelper;
 
 @Service
 public class LitemallRegionService {

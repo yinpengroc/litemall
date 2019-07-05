@@ -1,17 +1,20 @@
 package org.linlinjava.litemall.db.service;
 
-import com.alibaba.druid.util.StringUtils;
-import com.github.pagehelper.PageHelper;
-import org.linlinjava.litemall.db.dao.LitemallRoleMapper;
-import org.linlinjava.litemall.db.domain.LitemallRole;
-import org.linlinjava.litemall.db.domain.LitemallRoleExample;
-import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import javax.annotation.Resource;
+
+import org.linlinjava.litemall.db.dao.LitemallRoleMapper;
+import org.linlinjava.litemall.db.domain.LitemallRole;
+import org.linlinjava.litemall.db.domain.LitemallRoleExample;
+import org.springframework.stereotype.Service;
+
+import com.alibaba.druid.util.StringUtils;
+import com.github.pagehelper.PageHelper;
 
 @Service
 public class LitemallRoleService {

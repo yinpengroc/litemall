@@ -1,11 +1,9 @@
 package org.linlinjava.litemall.wx.service;
 
-import org.linlinjava.litemall.wx.dto.CaptchaItem;
-
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+
+import org.linlinjava.litemall.wx.dto.CaptchaItem;
 
 /**
  * 缓存系统中的验证码
