@@ -176,52 +176,10 @@ V 3.0.0 完成以下目标：
 2. 后端服务加强安全功能、配置功能
 3. 缓存功能以及优化一些性能
 
-## 警告
 
-> 1. 本项目仅用于学习练习
-> 2. 本项目还不完善，仍处在开发中，不承担任何使用后果
-> 3. 本项目代码开源[MIT](./LICENSE)，项目文档采用 [署名-禁止演绎 4.0 国际协议许可](https://creativecommons.org/licenses/by-nd/4.0/deed.zh)
-
-## 致谢
-
-本项目基于或参考以下项目：
-
-1. [nideshop-mini-program](https://github.com/tumobi/nideshop-mini-program)
-
-   项目介绍：基于Node.js+MySQL开发的开源微信小程序商城（微信小程序）
-
-   项目参考：
-   
-   1. litemall项目数据库基于nideshop-mini-program项目数据库；
-   2. litemall项目的litemall-wx模块基于nideshop-mini-program开发。
-
-2. [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
-  
-   项目介绍： 一个基于Vue和Element的后台集成方案
-  
-   项目参考：litemall项目的litemall-admin模块的前端框架基于vue-element-admin项目修改扩展。
-
-3. [mall-admin-web](https://github.com/macrozheng/mall-admin-web)
-
-   项目介绍：mall-admin-web是一个电商后台管理系统的前端项目，基于Vue+Element实现。
-
-   项目参考：litemall项目的litemall-admin模块的一些页面布局样式参考了mall-admin-web项目。
-
-4. [biu](https://github.com/CaiBaoHong/biu)
-
-   项目介绍：管理后台项目开发脚手架，基于vue-element-admin和springboot搭建，前后端分离方式开发和部署。
-
-   项目参考：litemall项目的权限管理功能参考了biu项目。
-
-5. [vant--mobile-mall](https://github.com/qianzhaoy/vant--mobile-mall)
-
-   项目介绍：基于有赞 vant 组件库的移动商城。
-
-   项目参考：litemall项目的litemall-vue模块基于vant--mobile-mall项目开发。
    
 ## 问题
 
-![](doc/pic/qq2.png)
 
  * 开发者有问题或者好的建议可以用Issues反馈交流，请给出详细信息
  * 在开发交流群中应讨论开发、业务和合作问题
